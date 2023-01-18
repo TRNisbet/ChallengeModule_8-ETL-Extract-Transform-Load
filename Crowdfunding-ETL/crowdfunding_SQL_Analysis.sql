@@ -56,14 +56,14 @@ SELECT b.email,
 	c.description,
 	c.end_date,
 	c.goal - c.pledged
-INTO email_backers_remaining_goal_amount_2
+INTO email_backers_remaining_goal_amount
 FROM backers as b
 INNER JOIN campaign as c
 ON b.cf_id = c.cf_id
 ORDER BY b.email;
 
-ALTER TABLE email_backers_remaining_goal_amount_2
+ALTER TABLE email_backers_remaining_goal_amount
 	RENAME COLUMN "?column?" TO "Left of Goal";
 	
 -- Check the table
-SELECT * FROM "email_backers_remaining_goal_amount_2";
+SELECT * FROM "email_backers_remaining_goal_amount";
